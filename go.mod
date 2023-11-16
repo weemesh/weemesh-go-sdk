@@ -1,4 +1,4 @@
-module github.com/winstar-smart/weemesh-go-sdk
+module gitee.com/winstar-smart/weemesh-go-sdk
 
 go 1.20
 
