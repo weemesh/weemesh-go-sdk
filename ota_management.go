@@ -17,3 +17,12 @@ func (c *Client) GetFirmwareVersionsByProductKey(productKey string) (*CommonResu
 
 	return newRequest[[]map[string]interface{}](request, c)
 }
+
+func (c *Client) GetOTALatestJob(sn string) (*CommonResult[map[string]interface{}], error) {
+	request, err := http.NewRequest(http.MethodGet, c.address+"/"+APIVersion+"/ota/"+sn+"/latestJob", nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return newRequest[map[string]interface{}](request, c)
+}
