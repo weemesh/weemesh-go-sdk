@@ -22,7 +22,7 @@ func (s *OtaManagementSuite) TestGetFirmwareVersionsByProductKey(c *C) {
 
 	client := NewClient(*accessKey, *accessSecret, *addr)
 
-	result, err := client.GetFirmwareVersionsByProductKey(*productKey)
+	result, err := client.GetFirmwareVersionsByProductKey(*productKey, []string{"release"})
 	if err != nil {
 		c.Fatal(err)
 	}
