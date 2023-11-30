@@ -2,6 +2,7 @@ package weemesh
 
 import (
 	"fmt"
+	"gitee.com/winstar-smart/weemesh-go-sdk/model"
 	. "gopkg.in/check.v1"
 	"net/http"
 	"testing"
@@ -22,7 +23,34 @@ func (s *OtaManagementSuite) TestGetFirmwareVersionsByProductKey(c *C) {
 
 	client := NewClient(*accessKey, *accessSecret, *addr)
 
-	result, err := client.GetFirmwareVersionsByProductKey(*productKey)
+	result, err := client.GetFirmwareVersionsByProductKey(*productKey, []string{"release"})
+	if err != nil {
+		c.Fatal(err)
+	}
+
+	fmt.Println(result)
+
+	c.Assert(result.Code, Equals, http.StatusOK)
+}
+
+func (s *OtaManagementSuite) TestNewFirmware(c *C) {
+	if *addr == "" || *accessKey == "" || *accessSecret == "" {
+		c.Skip("参数不完整")
+	}
+
+	client := NewClient(*accessKey, *accessSecret, *addr)
+
+	result, err := client.NewFirmware(&model.NewFirmwareParams{
+		ProductKey:   "1",
+		FirmwareName: "测试固件3",
+		Version:      "v1",
+		Remark:       "test",
+		FirmwareType: 1,
+		URL:          "https://oss.winstar-smart.com/weemesh/firmware_20231102114518_4445.bin",
+		SignMethod:   0,
+		Enable:       true,
+		Tags:         []string{"test"},
+	})
 	if err != nil {
 		c.Fatal(err)
 	}
