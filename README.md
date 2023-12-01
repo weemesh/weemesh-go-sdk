@@ -14,7 +14,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/weemesh/weemesh-go-sdk"
+	"gitee.com/winstar-smart/weemesh-go-sdk"
 	"log"
 )
 
@@ -52,10 +52,4 @@ func main() {
 
 ```
 
-
-## Contributors
-
-| 参与者        | 时间          | email                      |
-|------------|-------------|----------------------------|
-| voson wang | 2023-04 ~ ? | wangsong@winstar-smart.com |
 
