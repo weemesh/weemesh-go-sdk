@@ -10,7 +10,7 @@ func (c *Client) GetDeviceState(sn string) (*CommonResult[bool], error) {
 	params := url.Values{}
 	params.Set("sn", sn)
 
-	request, err := http.NewRequest(http.MethodGet, c.address+"/"+APIVersion+"/device/state?"+params.Encode(), nil)
+	request, err := http.NewRequest(http.MethodGet, c.address+"/device/state?"+params.Encode(), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -19,7 +19,7 @@ func (c *Client) GetDeviceState(sn string) (*CommonResult[bool], error) {
 }
 
 func (c *Client) GetDeviceLatestProperty(sn string) (*CommonResult[map[string]interface{}], error) {
-	request, err := http.NewRequest(http.MethodGet, c.address+"/"+APIVersion+"/device/"+sn+"/latestProperty", nil)
+	request, err := http.NewRequest(http.MethodGet, c.address+"/device/"+sn+"/latestProperty", nil)
 	if err != nil {
 		return nil, err
 	}
@@ -28,7 +28,7 @@ func (c *Client) GetDeviceLatestProperty(sn string) (*CommonResult[map[string]in
 }
 
 func (c *Client) GetDevice(sn string) (*CommonResult[map[string]interface{}], error) {
-	request, err := http.NewRequest(http.MethodGet, c.address+"/"+APIVersion+"/device/"+sn, nil)
+	request, err := http.NewRequest(http.MethodGet, c.address+"/device/"+sn, nil)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,7 @@ func (c *Client) GetAppProductKeys(appName string) (*CommonResult[[]string], err
 	params := url.Values{}
 	params.Set("app_name", appName)
 
-	request, err := http.NewRequest(http.MethodGet, c.address+"/"+APIVersion+"/app/productKeys?"+params.Encode(), nil)
+	request, err := http.NewRequest(http.MethodGet, c.address+"/app/productKeys?"+params.Encode(), nil)
 	if err != nil {
 		return nil, err
 	}

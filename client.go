@@ -9,7 +9,6 @@ import (
 const (
 	Version230503 = "2023-05-03"
 	MethodSha1    = "sha1"
-	APIVersion    = "v1"
 )
 
 type Client struct {
