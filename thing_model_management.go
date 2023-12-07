@@ -11,7 +11,7 @@ func (c *Client) GetThingModel(productKey, organizationID string) (*CommonResult
 	params.Set("product_key", productKey)
 	params.Set("organization_id", organizationID)
 
-	request, err := http.NewRequest(http.MethodGet, c.address+"/"+APIVersion+"/thing_models?"+params.Encode(), nil)
+	request, err := http.NewRequest(http.MethodGet, c.address+"/thing_models?"+params.Encode(), nil)
 	if err != nil {
 		return nil, err
 	}
